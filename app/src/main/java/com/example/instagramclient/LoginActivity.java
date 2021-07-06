@@ -101,23 +101,17 @@ public class LoginActivity extends AppCompatActivity {
     private void goToMainActivity() {
         // goes to MainActivity
         // launches new intent and
-        Intent i = new Intent(LoginActivity.this, MainActivity.class);
-        startActivity(i);
+        Intent toMain = new Intent(LoginActivity.this, MainActivity.class);
+        startActivity(toMain);
         finish();
     }
 
     // goes to SignUpActivity
     private void goToSignUpActivity() {
         // launches new intent
-        Intent i = new Intent(LoginActivity.this, SignUpActivity.class);
-        startActivity(i);
+        Intent toSignUp = new Intent(LoginActivity.this, SignUpActivity.class);
+        startActivity(toSignUp);
     }
-
-//    private void updateUiWithUser(LoggedInUserView model) {
-//        String welcome = getString(R.string.welcome) + model.getDisplayName();
-//        // TODO : initiate successful logged in experience
-//        Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
-//    }
 
     // prints out toast that shows text parameter
     private void showLoginState(@StringRes Integer errorString) {

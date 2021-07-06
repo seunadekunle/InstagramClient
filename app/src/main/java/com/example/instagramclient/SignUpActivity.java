@@ -79,8 +79,8 @@ public class SignUpActivity extends AppCompatActivity {
                 public void done(ParseException e) {
                     if (e == null) {
                         // goes to main activity
-                        Intent i = new Intent(SignUpActivity.this, MainActivity.class);
-                        startActivity(i);
+                        Intent toMain = new Intent(SignUpActivity.this, MainActivity.class);
+                        startActivity(toMain);
                         finish();
                     } else {
                         // Sign up didn't succeed. stay on page and show message
