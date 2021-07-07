@@ -60,16 +60,20 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void signUpUser(String username, String password) {
+
         // if username or password is empty show error meessage
-        if (username.matches("") && password.matches(""))
+        if (username.isEmpty() && password.isEmpty()) {
             showSignUpState(R.string.empty_fields);
-        else if(username.matches(""))
+            return;
+        } else if (username.isEmpty()) {
             showSignUpState(R.string.invalid_username);
-        else if(username.matches(""))
+            return;
+        } else if (username.isEmpty()) {
             showSignUpState(R.string.invalid_password);
-        else{
+            return;
+        } else {
             // create a new parse user
-            ParseUser user =  new ParseUser();
+            ParseUser user = new ParseUser();
             user.setUsername(username);
             user.setPassword(password);
 

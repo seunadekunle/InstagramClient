@@ -16,4 +16,10 @@
     <string name="sign_up_failed">Sign Up Failed</string>
     <string name="title_activity_sign_up">SignUpActivity</string>
     <string name="action_sign_in_short">Sign in</string>
+    <string name="submit">Submit</string>
+    <string name="take_photo">Take Photo</string>
+    <string name="about_this_photo">About this photo</string>
+    <string name="desc_empty">The description can\'t be empty</string>
+    <string name="img_empty">There is no image</string>
+
 </resources>
