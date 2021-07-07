@@ -38,7 +38,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         // hide action bar
-        getSupportActionBar().hide();
+//        getSupportActionBar().hide();
 
         // if user is logged in already go to login activity
         if (ParseUser.getCurrentUser() != null){

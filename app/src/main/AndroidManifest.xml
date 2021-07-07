@@ -13,7 +13,6 @@
         android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.InstagramClient">
-
         <!-- make sure within the application tag, otherwise app will crash with XmlResourceParser errors -->
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -27,7 +26,7 @@
 
         <activity
             android:name=".SignUpActivity"
-            android:label="@string/title_activity_sign_up"></activity>
+            android:label="@string/title_activity_sign_up" />
         <activity android:name=".MainActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
@@ -36,7 +35,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>
