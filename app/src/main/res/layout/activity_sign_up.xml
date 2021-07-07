@@ -43,13 +43,11 @@
 
     <Button
         android:id="@+id/signup"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginStart="@dimen/margin_login"
+        android:layout_marginEnd="@dimen/margin_login"
         android:enabled="true"
         android:text="@string/sign_up"
         android:imeActionLabel="@string/sign_up"
@@ -57,7 +55,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password"
-        app:layout_constraintVertical_bias="0.2" />
+        app:layout_constraintVertical_bias="0.08" />
 
     <ProgressBar
         android:id="@+id/loading"

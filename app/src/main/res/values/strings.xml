@@ -21,5 +21,6 @@
     <string name="about_this_photo">About this photo</string>
     <string name="desc_empty">The description can\'t be empty</string>
     <string name="img_empty">There is no image</string>
+    <string name="title_activity_feed">ScrollingActivity</string>
 
 </resources>
