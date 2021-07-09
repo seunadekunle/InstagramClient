@@ -50,6 +50,8 @@
         android:layout_marginTop="0dp"
         android:layout_marginBottom="0dp"
         android:paddingTop="15dp"
+        app:itemRippleColor="#00FFFFFF"
+        app:itemTextColor="#00FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/menu_bottom_navigation"

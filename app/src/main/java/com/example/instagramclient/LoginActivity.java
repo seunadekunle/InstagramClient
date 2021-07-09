@@ -53,7 +53,6 @@ public class LoginActivity extends AppCompatActivity {
         usernameEditText = binding.username;
         passwordEditText = binding.password;
         loginButton = binding.login;
-        loadingProgressBar = binding.loading;
         signUp = binding.signUp;
 
         // sets on click listener for button

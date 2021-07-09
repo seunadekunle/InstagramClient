@@ -43,8 +43,6 @@ public class SignUpActivity extends AppCompatActivity {
         usernameEditText = binding.username;
         passwordEditText = binding.password;
         signUpButton = binding.signup;
-        loadingProgressBar = binding.loading;
-
 
         signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,7 +52,6 @@ public class SignUpActivity extends AppCompatActivity {
                 String password = passwordEditText.getText().toString();
 
                 signUpUser(username, password);
-                loadingProgressBar.setVisibility(View.INVISIBLE);
             }
         });
     }

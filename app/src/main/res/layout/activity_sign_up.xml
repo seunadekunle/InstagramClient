@@ -11,16 +11,31 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".SignUpActivity">
 
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="@dimen/logo_dimen"
+        android:layout_height="@dimen/logo_dimen"
+        android:layout_marginTop="125dp"
+        app:layout_constraintBottom_toTopOf="@+id/username"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/nav_logo_whiteout" />
+
     <EditText
         android:id="@+id/username"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="96dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginStart="@dimen/margin_login"
+        android:layout_marginTop="275dp"
+        android:layout_marginEnd="@dimen/margin_login"
+        android:background="@drawable/et_background"
         android:hint="@string/prompt_username"
         android:inputType="textEmailAddress"
+        android:padding="10dp"
         android:selectAllOnFocus="true"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -30,13 +45,16 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="24dp"
+        android:background="@drawable/et_background"
         android:hint="@string/prompt_password"
         android:imeActionLabel="@string/sign_up"
         android:imeOptions="actionDone"
         android:inputType="textPassword"
+        android:padding="10dp"
         android:selectAllOnFocus="true"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username" />
@@ -48,28 +66,17 @@
         android:layout_gravity="start"
         android:layout_marginStart="@dimen/margin_login"
         android:layout_marginEnd="@dimen/margin_login"
+        android:layout_marginBottom="5dp"
         android:enabled="true"
-        android:text="@string/sign_up"
         android:imeActionLabel="@string/sign_up"
+        android:text="@string/sign_up"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password"
-        app:layout_constraintVertical_bias="0.08" />
+        app:layout_constraintVertical_bias="0.08"
+        android:background="@drawable/btn_background"
+        app:backgroundTint="@null"/>
 
-    <ProgressBar
-        android:id="@+id/loading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="64dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/password"
-        app:layout_constraintStart_toStartOf="@+id/password"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3" />
 </androidx.constraintlayout.widget.ConstraintLayout>
