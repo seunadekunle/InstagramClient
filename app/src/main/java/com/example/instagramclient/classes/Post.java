@@ -7,8 +7,13 @@ import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @ParseClassName("Post")
 public class Post extends ParseObject implements Serializable {
@@ -17,6 +22,9 @@ public class Post extends ParseObject implements Serializable {
     private static final String KEY_IMAGE = "Image";
     private static final String KEY_DESC = "description";
     private static final String KEY_LIKES = "likes";
+    private static final String KEY_LIST = "userList";
+
+    private List<String> userList = new ArrayList<>();
 
     public ParseUser getUser() {
         return getParseUser(KEY_USER);
@@ -48,6 +56,28 @@ public class Post extends ParseObject implements Serializable {
 
     public void setLikes(int likes) {
         put(KEY_LIKES, likes);
+    }
+
+    // returns the formatted list of the ids of user who liked the post
+    public List<String> getList() {
+
+        JSONArray jsonArray = getJSONArray(KEY_LIST);
+
+        if (jsonArray != null) {
+            for (int i = 0; i < jsonArray.length(); i++) {
+                try {
+                    userList.add(jsonArray.getString(i));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        return userList;
+    }
+
+    private void setList(List<String> newList) {
+        put(KEY_LIST, newList);
     }
 
     // returns the timestamp as a string
@@ -92,6 +122,27 @@ public class Post extends ParseObject implements Serializable {
         return "";
     }
 
+    // adds user to post like array
+    public void addUser(ParseUser user) {
+        userList.add(user.getObjectId());
+        setList(userList);
+    }
+
+    // removes user to post like array
+    public void removeUser(ParseUser user) {
+
+        for (String id : userList) {
+            if (user.getObjectId().equals(id))
+                userList.remove(id);
+        }
+        setList(userList);
+    }
+
+    // checks if the given user liked the post
+    public boolean isLiked(ParseUser user) {
+        return userList.contains(user.getObjectId());
+    }
+
     public static String getKeyUser() {
         return KEY_USER;
     }
@@ -103,7 +154,6 @@ public class Post extends ParseObject implements Serializable {
     public static String getKeyDesc() {
         return KEY_DESC;
     }
-
 }
 
 

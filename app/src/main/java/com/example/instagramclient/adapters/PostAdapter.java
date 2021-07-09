@@ -1,11 +1,11 @@
 package com.example.instagramclient.adapters;
 
 import android.content.Context;
-import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -19,11 +19,12 @@ import com.bumptech.glide.Glide;
 import com.example.instagramclient.R;
 import com.example.instagramclient.classes.Post;
 import com.example.instagramclient.fragments.DetailFragment;
+import com.example.instagramclient.fragments.FeedFragment;
 import com.parse.ParseFile;
+import com.parse.ParseUser;
 
 import org.jetbrains.annotations.NotNull;
-import org.parceler.Parcel;
-import org.parceler.Parcels;
+import org.json.JSONException;
 
 import java.util.List;
 
@@ -81,31 +82,62 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         private TextView tvDesc;
         private TextView tvStamp;
         private TextView tvLikes;
+        private ImageButton likeBtn;
 
         public ViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
 
+            // connect ui elements to data variables
+            parent = itemView.findViewById(R.id.parentLayout);
             tvUsername = itemView.findViewById(R.id.tvUsername);
             tvDesc = itemView.findViewById(R.id.tvDesc);
             tvStamp = itemView.findViewById(R.id.tvStamp);
             ivImg = itemView.findViewById(R.id.ivImg);
             tvLikes = itemView.findViewById(R.id.tvLikes);
-            parent = itemView.findViewById(R.id.parentLayout);
+            likeBtn = itemView.findViewById(R.id.likeBtn);
         }
 
         public void bind(Post post) {
+
             // bind post data to ui elements
             tvUsername.setText(post.getUser().getUsername());
             tvDesc.setText(post.getDesc());
             tvStamp.setText(post.getTimeStamp());
-            tvLikes.setText(String.format("%d likes", post.getLikes())) ;
+            tvLikes.setText(String.format("%d", post.getLikes()));
             ParseFile img = post.getImage();
 
+            // handles if image gotten from database
             if (img != null)
                 Glide.with(context).load(img.getUrl()).into(ivImg);
             else
                 ivImg.setVisibility(View.INVISIBLE);
 
+            // handles like button onClick
+            likeBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    boolean liked = post.isLiked(ParseUser.getCurrentUser());
+
+                    // sets the like count based on if the button is clicked
+                    if (liked) {
+                        if (post.getLikes() > 0){
+                            post.setLikes(post.getLikes() - 1);
+                            post.removeUser(ParseUser.getCurrentUser());
+                        }
+                    }
+                    else {
+                        post.setLikes(post.getLikes() + 1);
+                        post.addUser(ParseUser.getCurrentUser());
+                    }
+
+                    // save it in background and change button state and text state
+                    post.saveInBackground();
+                    tvLikes.setText(String.format("%d", post.getLikes()));
+                    updateLikeBtn(likeBtn, post, ParseUser.getCurrentUser());
+                }
+            });
+
+            // set cn click listener if the item clicked
             parent.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -128,6 +160,14 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
                     }
                 }
             });
+
+            // update like button state
+            updateLikeBtn(likeBtn, post, ParseUser.getCurrentUser());
+        }
+
+        // updates the like button based on if the user like the post
+        private void updateLikeBtn(ImageButton btn, Post post, ParseUser user){
+            btn.setSelected(post.isLiked(user));
         }
     }
 }

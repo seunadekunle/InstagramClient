@@ -27,7 +27,6 @@ public class LoginActivity extends AppCompatActivity {
     private EditText usernameEditText;
     private EditText passwordEditText;
     private Button loginButton;
-    private ProgressBar loadingProgressBar;
     private TextView signUp;
 
     String username, password;
@@ -60,13 +59,12 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // makes progress bar visible
-                loadingProgressBar.setVisibility(View.VISIBLE);
 
                 // gets username and password string and calls login function
                 username = usernameEditText.getText().toString();
                 password = passwordEditText.getText().toString();
                 loginUser(username, password);
-                loadingProgressBar.setVisibility(View.INVISIBLE);
+
             }
         });
 

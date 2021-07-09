@@ -33,6 +33,7 @@ public class DetailFragment extends Fragment {
     private ImageView ivImg;
     private TextView tvUsername;
     private TextView tvDesc;
+    private TextView likeCount;
     private TextView tvStamp;
     private Toolbar detailBar;
 
@@ -81,16 +82,25 @@ public class DetailFragment extends Fragment {
         ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         ((MainActivity) getActivity()).getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-
+        // bind post data to ui elements
         tvUsername = view.findViewById(R.id.tvUsername);
         tvDesc = view.findViewById(R.id.tvDesc);
         tvStamp = view.findViewById(R.id.tvStamp);
+        likeCount = view.findViewById(R.id.likeCount);
         ivImg = view.findViewById(R.id.ivImg);
 
-        // bind post data to ui elements
+        // updates user elements
         tvUsername.setText(post.getUser().getUsername());
         tvDesc.setText(post.getDesc());
         tvStamp.setText(post.getTimeStamp());
+
+        // check fo
+        String likeText = "like";
+
+        if (post.getLikes() != 1)
+            likeText += "s";
+
+        likeCount.setText(String.format("%d %s", post.getLikes(), likeText));
         ParseFile img = post.getImage();
 
         if (img != null)

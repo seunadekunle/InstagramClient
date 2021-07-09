@@ -174,22 +174,4 @@ public class ComposeFragment extends Fragment {
         return new File(mediaStorageDir.getPath() + File.separator + fileName);
     }
 
-    private void queryPost() {
-        // Specify which class to query
-        ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
-        // Specify the object id
-        query.findInBackground(new FindCallback<Post>() {
-
-            @Override
-            public void done(List<Post> posts, ParseException e) {
-                if (e != null) {
-                    Log.e(TAG, "issue with getting posts", e);
-                } else {
-                    for (Post post : posts) {
-                        Log.i(TAG, "Post: " + post.getDesc(), e);
-                    }
-                }
-            }
-        });
-    }
 }

@@ -34,6 +34,7 @@
         android:orientation="horizontal">
 
         <ImageButton
+            android:id="@+id/likeBtn"
             android:layout_width="27.5dp"
             android:layout_height="27.5dp"
             android:layout_marginLeft="@dimen/margin_global"
@@ -44,11 +45,14 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:layout_marginLeft="15dp"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="1dp"
+            android:fontFamily="sans-serif-medium"
             android:gravity="center"
             android:text="TextView"
             android:textAlignment="gravity"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:textSize="16.5sp" />
     </LinearLayout>
 
     <TextView

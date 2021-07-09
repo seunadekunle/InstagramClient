@@ -30,7 +30,7 @@ import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link FeedFragment#newInstance} factory method to
+ * Use the {@link FeedFragment newInstance} factory method to
  * create an instance of this fragment.
  */
 public class FeedFragment extends Fragment {
@@ -120,12 +120,12 @@ public class FeedFragment extends Fragment {
 
                 // for debugging purposes let's print every post description to logcat
                 for (Post post : posts) {
-                    Log.i(TAG, "Post: " + post.getDesc() + ", username: " + post.getUser().getUsername());
+                    Log.i(TAG, "Post: " + post.getDesc() + ", size: " + post.getList().size());
                 }
 
                 adapter.clear();
                 // save received posts to list and notify adapter of new data
-                allPosts.addAll(posts);
+                adapter.addAll(posts);
                 adapter.notifyDataSetChanged();
             }
         });
