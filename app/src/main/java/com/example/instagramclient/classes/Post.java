@@ -7,9 +7,6 @@ import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
-import org.parceler.Parcel;
-import org.parceler.ParcelConstructor;
-
 import java.io.Serializable;
 import java.util.Date;
 
@@ -19,6 +16,7 @@ public class Post extends ParseObject implements Serializable {
     private static final String KEY_USER = "user";
     private static final String KEY_IMAGE = "Image";
     private static final String KEY_DESC = "description";
+    private static final String KEY_LIKES = "likes";
 
     public ParseUser getUser() {
         return getParseUser(KEY_USER);
@@ -42,6 +40,14 @@ public class Post extends ParseObject implements Serializable {
 
     public void setDesc(String description) {
         put(KEY_DESC, description);
+    }
+
+    public int getLikes() {
+        return getInt(KEY_LIKES);
+    }
+
+    public void setLikes(int likes) {
+        put(KEY_LIKES, likes);
     }
 
     // returns the timestamp as a string

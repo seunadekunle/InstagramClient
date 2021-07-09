@@ -80,6 +80,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         private TextView tvUsername;
         private TextView tvDesc;
         private TextView tvStamp;
+        private TextView tvLikes;
 
         public ViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
@@ -88,6 +89,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             tvDesc = itemView.findViewById(R.id.tvDesc);
             tvStamp = itemView.findViewById(R.id.tvStamp);
             ivImg = itemView.findViewById(R.id.ivImg);
+            tvLikes = itemView.findViewById(R.id.tvLikes);
             parent = itemView.findViewById(R.id.parentLayout);
         }
 
@@ -96,6 +98,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             tvUsername.setText(post.getUser().getUsername());
             tvDesc.setText(post.getDesc());
             tvStamp.setText(post.getTimeStamp());
+            tvLikes.setText(String.format("%d likes", post.getLikes())) ;
             ParseFile img = post.getImage();
 
             if (img != null)
