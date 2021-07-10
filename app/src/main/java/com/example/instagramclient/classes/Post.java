@@ -76,7 +76,7 @@ public class Post extends ParseObject implements Serializable {
         return userList;
     }
 
-    private void setList(List<String> newList) {
+    public void setList(List<String> newList) {
         put(KEY_LIST, newList);
     }
 

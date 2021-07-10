@@ -14,8 +14,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
-import com.example.instagramclient.MainActivity;
+import com.example.instagramclient.activities.MainActivity;
 import com.example.instagramclient.R;
 import com.example.instagramclient.adapters.PostAdapter;
 import com.example.instagramclient.classes.Post;
@@ -42,6 +43,7 @@ public class FeedFragment extends Fragment {
     protected List<Post> allPosts;
     protected PostAdapter adapter;
     protected SwipeRefreshLayout swipeContainer;
+    protected ProgressBar progressBar;
 
     protected Toolbar mainBar;
 
@@ -64,6 +66,9 @@ public class FeedFragment extends Fragment {
         ((MainActivity) getActivity()).getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         rvPosts = view.findViewById(R.id.rvPosts);
+
+        progressBar = view.findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.VISIBLE);
 
         allPosts = new ArrayList<>();
         swipeContainer = view.findViewById(R.id.swipeContainer);
@@ -127,6 +132,8 @@ public class FeedFragment extends Fragment {
                 // save received posts to list and notify adapter of new data
                 adapter.addAll(posts);
                 adapter.notifyDataSetChanged();
+
+                progressBar.setVisibility(View.INVISIBLE);
             }
         });
     }

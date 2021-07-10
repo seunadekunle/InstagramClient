@@ -3,8 +3,8 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_username">Username</string>
     <string name="prompt_password">Password</string>
-    <string name="action_register">Log in or register</string>
-    <string name="action_sign_in">Log in</string>
+    <string name="action_sign_in">Log in</string>d
+    <string name="action_sign_out">Log out</string>d
     <string name="welcome">"Welcome !"</string>
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password field can\'t be empty</string>
@@ -23,5 +23,6 @@
     <string name="img_empty">There is no image</string>
     <string name="title_activity_feed">ScrollingActivity</string>
     <string name="detail">Detail</string>
+    <string name="profile_image">Profile image</string>
 
 </resources>

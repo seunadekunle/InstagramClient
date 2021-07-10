@@ -1,4 +1,4 @@
-package com.example.instagramclient;
+package com.example.instagramclient.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,12 +6,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.instagramclient.R;
 import com.example.instagramclient.databinding.ActivitySignUpBinding;
 import com.parse.ParseException;
 import com.parse.ParseUser;
@@ -26,7 +26,6 @@ public class SignUpActivity extends AppCompatActivity {
     EditText usernameEditText;
     EditText passwordEditText;
     Button signUpButton;
-    ProgressBar loadingProgressBar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -36,9 +35,6 @@ public class SignUpActivity extends AppCompatActivity {
         binding = ActivitySignUpBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        // hide action bar
-        getSupportActionBar().hide();
-
         // bind ui elements to variables
         usernameEditText = binding.username;
         passwordEditText = binding.password;
@@ -47,7 +43,6 @@ public class SignUpActivity extends AppCompatActivity {
         signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loadingProgressBar.setVisibility(View.VISIBLE);
                 String username = usernameEditText.getText().toString();
                 String password = passwordEditText.getText().toString();
 

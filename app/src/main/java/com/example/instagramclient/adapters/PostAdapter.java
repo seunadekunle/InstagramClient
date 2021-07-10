@@ -28,6 +28,8 @@ import org.json.JSONException;
 
 import java.util.List;
 
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
+
 public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
     public Context context;
@@ -78,6 +80,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
         private LinearLayout parent;
         private ImageView ivImg;
+        private ImageView ivThumb;
         private TextView tvUsername;
         private TextView tvDesc;
         private TextView tvStamp;
@@ -93,6 +96,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             tvDesc = itemView.findViewById(R.id.tvDesc);
             tvStamp = itemView.findViewById(R.id.tvStamp);
             ivImg = itemView.findViewById(R.id.ivImg);
+            ivThumb = itemView.findViewById(R.id.ivThumb);
             tvLikes = itemView.findViewById(R.id.tvLikes);
             likeBtn = itemView.findViewById(R.id.likeBtn);
         }
@@ -111,6 +115,14 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
                 Glide.with(context).load(img.getUrl()).into(ivImg);
             else
                 ivImg.setVisibility(View.INVISIBLE);
+
+            // loads user profile image on timeline
+            ParseFile profileImg = post.getUser().getParseFile("profileImg");
+            // handles if image gotten from database
+            if (profileImg != null)
+                Glide.with(context).load(profileImg.getUrl()).fitCenter().transform(new RoundedCornersTransformation(50, 0)).override(100,50).into(ivThumb);
+            else
+                ivThumb.setVisibility(View.INVISIBLE);
 
             // handles like button onClick
             likeBtn.setOnClickListener(new View.OnClickListener() {

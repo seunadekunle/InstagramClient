@@ -1,10 +1,7 @@
-package com.example.instagramclient;
+package com.example.instagramclient.activities;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,12 +9,12 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import com.example.instagramclient.R;
 import com.example.instagramclient.databinding.ActivityMainBinding;
 import com.example.instagramclient.fragments.ComposeFragment;
 import com.example.instagramclient.fragments.FeedFragment;
 import com.example.instagramclient.fragments.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.parse.ParseUser;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -99,16 +96,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         return super.onOptionsItemSelected(menuItem);
-    }
-
-    // log out the user
-    private void logOutUser() {
-        ParseUser.logOut();
-        ParseUser currentUser = ParseUser.getCurrentUser(); // this will now be null
-
-        // go to login activity
-        Intent toLogin = new Intent(MainActivity.this, LoginActivity.class);
-        startActivity(toLogin);
     }
 
 }

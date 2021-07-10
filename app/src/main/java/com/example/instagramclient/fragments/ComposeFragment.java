@@ -29,6 +29,7 @@ import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ComposeFragment extends Fragment {
@@ -139,6 +140,7 @@ public class ComposeFragment extends Fragment {
         post.setDesc(description);
         post.setUser(currentUser);
         post.setImage(new ParseFile(photoFile));
+        post.setList(new ArrayList<>());
         post.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {

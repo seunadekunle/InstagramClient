@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,7 +13,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
-import com.example.instagramclient.MainActivity;
+import com.example.instagramclient.activities.MainActivity;
 import com.example.instagramclient.R;
 import com.example.instagramclient.classes.Post;
 import com.parse.ParseFile;

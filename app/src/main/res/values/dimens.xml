@@ -8,4 +8,5 @@
     <dimen name="text_margin">16dp</dimen>
     <dimen name="margin_global">15dp</dimen>
     <dimen name="logo_dimen">175dp</dimen>
+    <dimen name="img_grid_size">140dp</dimen>
 </resources>
