@@ -51,7 +51,11 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://github.com/seunadekunle/InstagramClient/blob/master/walkthrough.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://github.com/seunadekunle/InstagramClient/blob/master/walkthrough2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://github.com/seunadekunle/InstagramClient/blob/master/walkthrough3.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://github.com/seunadekunle/InstagramClient/blob/master/walkthrough4.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://github.com/seunadekunle/InstagramClient/blob/master/walkthrough5.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [Kap](https://getkap.co/).
 
